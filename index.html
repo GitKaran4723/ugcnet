@@ -39,6 +39,7 @@
         <a href="#about" class="hover:underline">About</a>
         <a href="#notes" class="hover:underline">Notes</a>
         <a href="videos.html" class="hover:underline">Videos</a>
+        <a href="updates.html" class="hover:underline">Updates</a>
       </nav>
 
       <!-- Mobile Menu Toggle -->
@@ -53,6 +54,7 @@
       <a href="#about" class="block hover:underline">About</a>
       <a href="#notes" class="block hover:underline">Notes</a>
       <a href="videos.html" class="block hover:underline">Videos</a>
+      <a href="updates.html" class="block hover:underline">UPdates</a>
     </nav>
   </header>
 
@@ -72,12 +74,29 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="p-8 bg-white shadow my-4 max-w-3xl mx-auto rounded-xl text-center">
-    <img src="assets/images/profile.jpg" alt="My Profile" class="rounded-full w-32 mx-auto mb-4" />
+<section id="about" class="p-8 bg-white shadow my-4 max-w-3xl mx-auto rounded-xl text-center">
+    <div class="relative w-40 h-40 mx-auto mb-6">
+      <!-- Profile Photo -->
+      <img src="assets/images/profile.jpg" alt="My Profile" class="rounded-full w-full h-full object-cover border-[5px] border-white shadow-lg" />
+  
+      <!-- Badge Overlay -->
+      <img src="assets/images/ugcnet-badge.png" alt="UGC NET Badge"
+           class="absolute -bottom-2 -right-2 w-14 h-14 rounded-full border-[3px] border-white bg-white shadow-md" />
+    </div>
+  
     <h3 class="text-xl font-bold mb-2 text-maroon">About Me</h3>
-    <p>I am a Computer Science educator who cleared the UGC NET in my first attempt. My goal is to make UGC NET Paper 1 easier for everyone by sharing free resources, notes, and video lectures.</p>
-    <img src="assets/images/ugcnet-badge.png" alt="UGC NET Badge" class="w-32 mx-auto mt-4" />
+    <p>
+      I am a <strong>Computer Science lecturer at Bangalore University</strong>, currently teaching subjects like
+      <strong>Data Structures, Discrete Mathematics, and Competitive Coding</strong>. I also mentor students for academic
+      excellence and encourage them to build strong technical foundations and problem-solving skills.
+    </p>
+    <p class="mt-4">
+      I cleared the <strong>UGC NET in my first attempt (CSE)</strong> and created this platform to support aspirants preparing
+      for UGC NET Paper 1 with free notes, lectures, and guidance.
+    </p>
   </section>
+  
+  
 
   <!-- Notes Section -->
   <section id="notes" class="p-8">

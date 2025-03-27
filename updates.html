@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam Updates – UGC NET</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#ff9933',
+            maroon: '#800000',
+            turmeric: '#ffc107',
+            leafgreen: '#228b22'
+          }
+        }
+      }
+    }
+  </script>
+  
+</head>
+<body class="bg-[#fff8f0] text-gray-800">
+
+  <header class="bg-saffron text-white p-4 text-center shadow">
+    <h1 class="text-2xl font-bold">📰 Exam Updates & Announcements</h1>
+    <a href="index.html" class="underline text-sm block mt-2">← Back to Home</a>
+  </header>
+
+  <main class="p-6 max-w-4xl mx-auto" id="updatesContainer"></main>
+
+  <footer class="text-center text-sm p-4 bg-maroon text-white mt-8">
+    &copy; 2025 Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    let activeNewsId = null;
+
+    async function loadUpdates() {
+      const res = await fetch('data/updates.json');
+      const updates = await res.json();
+      const container = document.getElementById('updatesContainer');
+
+      updates.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = "bg-white shadow rounded p-4 mb-6 border-l-4 border-saffron";
+
+        const date = new Date(item.date).toLocaleString();
+
+        card.innerHTML = `
+          <h2 class="text-xl font-semibold text-leafgreen">${item.title}</h2>
+          <p class="text-sm text-gray-500 mb-2">🕒 ${date}</p>
+          <p class="mb-3">${item.summary}</p>
+          <button onclick="toggleNews(${index})"
+                  class="bg-saffron text-white px-4 py-1 rounded hover:bg-maroon transition">
+            Show News
+          </button>
+          <div id="news-${index}" class="mt-4 hidden"></div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    async function toggleNews(id) {
+      const allNews = document.querySelectorAll('[id^="news-"]');
+      allNews.forEach((el, idx) => {
+        if (idx === id) return;
+        el.innerHTML = '';
+        el.classList.add('hidden');
+      });
+
+      const newsDiv = document.getElementById(`news-${id}`);
+      const isOpen = !newsDiv.classList.contains('hidden');
+
+      if (isOpen) {
+        newsDiv.classList.add('hidden');
+        newsDiv.innerHTML = '';
+        activeNewsId = null;
+        return;
+      }
+
+      const res = await fetch('data/updates.json');
+      const data = await res.json();
+      const md = data[id].content;
+      newsDiv.innerHTML = marked.parse(md);
+      newsDiv.classList.remove('hidden');
+      activeNewsId = id;
+    }
+
+    loadUpdates();
+  </script>
+</body>
+</html>
