@@ -1,0 +1,25 @@
+[
+    {
+      "chapter": "Teaching Aptitude",
+      "files": [
+        {
+          "title": "Basics of Teaching",
+          "url": "https://raw.githubusercontent.com/.../teaching-basics.md"
+        },
+        {
+          "title": "Learner Characteristics",
+          "url": "https://raw.githubusercontent.com/.../learner-characteristics.md"
+        }
+      ]
+    },
+    {
+      "chapter": "Research Aptitude",
+      "files": [
+        {
+          "title": "Types of Research",
+          "url": "https://raw.githubusercontent.com/.../types-of-research.md"
+        }
+      ]
+    }
+  ]
+  

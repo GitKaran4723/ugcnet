@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UGC NET Paper 1 Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <script>
+    // Tailwind config: Indian color palette
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#ff9933',
+            maroon: '#800000',
+            turmeric: '#ffc107',
+            leafgreen: '#228b22'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fff8f0] text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-saffron text-white p-4 relative z-50">
+    <div class="flex justify-between items-center max-w-7xl mx-auto">
+      <div class="flex items-center space-x-2">
+        <img src="assets/images/logo.png" alt="Logo" class="w-8 h-8" />
+        <h1 class="text-2xl font-bold">UGC NET Paper 1</h1>
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden sm:flex space-x-6 font-medium">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#notes" class="hover:underline">Notes</a>
+        <a href="videos.html" class="hover:underline">Videos</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" class="sm:hidden text-white text-2xl focus:outline-none">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <nav id="mobileMenu" class="hidden sm:hidden flex-col space-y-2 p-4 text-center bg-saffron">
+      <a href="#home" class="block hover:underline">Home</a>
+      <a href="#about" class="block hover:underline">About</a>
+      <a href="#notes" class="block hover:underline">Notes</a>
+      <a href="videos.html" class="block hover:underline">Videos</a>
+    </nav>
+  </header>
+
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-64 flex items-center justify-center text-white" style="background-image: url('assets/images/banner.jpg'); background-size: cover;">
+    <div class="bg-black bg-opacity-50 p-6 rounded">
+      <h2 class="text-3xl font-semibold mb-2">Cleared UGC NET in First Attempt (Computer)</h2>
+      <p class="text-lg">Proudly sharing notes, lectures, and strategies for your success.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="p-8 bg-white shadow my-4 max-w-3xl mx-auto rounded-xl text-center">
+    <img src="assets/images/profile.jpg" alt="My Profile" class="rounded-full w-32 mx-auto mb-4" />
+    <h3 class="text-xl font-bold mb-2 text-maroon">About Me</h3>
+    <p>I am a Computer Science educator who cleared the UGC NET in my first attempt. My goal is to make UGC NET Paper 1 easier for everyone by sharing free resources, notes, and video lectures.</p>
+    <img src="assets/images/ugcnet-badge.png" alt="UGC NET Badge" class="w-32 mx-auto mt-4" />
+  </section>
+
+  <!-- Notes Section -->
+  <section id="notes" class="p-8">
+    <h3 class="text-xl font-bold mb-4 text-leafgreen">Chapters</h3>
+    <div id="notesContainer" class="grid gap-4 md:grid-cols-2"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm p-4 bg-maroon text-white">
+    &copy; 2025 Karan Jadhav. All rights reserved.
+  </footer>
+
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

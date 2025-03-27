@@ -1,0 +1,25 @@
+[
+    {
+      "chapter": "Teaching Aptitude",
+      "videos": [
+        {
+          "title": "Intro to Teaching",
+          "url": "https://www.youtube.com/embed/xyz1"
+        },
+        {
+          "title": "Learner Needs",
+          "url": "https://www.youtube.com/embed/xyz2"
+        }
+      ]
+    },
+    {
+      "chapter": "Research Aptitude",
+      "videos": [
+        {
+          "title": "Quantitative vs Qualitative",
+          "url": "https://www.youtube.com/embed/xyz3"
+        }
+      ]
+    }
+  ]
+  

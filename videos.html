@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UGC NET Video Lectures</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#ff9933',
+            maroon: '#800000',
+            turmeric: '#ffc107',
+            leafgreen: '#228b22'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fff8f0] text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-saffron text-white p-4 text-center shadow">
+    <h1 class="text-2xl font-bold">UGC NET Paper 1 – Video Lectures</h1>
+    <a href="index.html" class="text-sm underline mt-2 inline-block">← Back to Home</a>
+  </header>
+
+  <!-- Video Content -->
+  <main class="p-6 max-w-6xl mx-auto">
+    <div id="videosContainer" class="space-y-10"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm p-4 bg-maroon text-white mt-8">
+    &copy; 2025 Karan Jadhav. All rights reserved.
+  </footer>
+
+  <!-- Video JSON Loader -->
+  <script>
+    async function loadVideos() {
+      const res = await fetch('data/videos.json');
+      const chapters = await res.json();
+      const container = document.getElementById('videosContainer');
+
+      chapters.forEach(chapter => {
+        const chapterDiv = document.createElement('div');
+        chapterDiv.innerHTML = `
+          <h2 class="text-xl font-bold text-leafgreen mb-4 border-b pb-2">${chapter.chapter}</h2>
+        `;
+
+        const grid = document.createElement('div');
+        grid.className = 'grid gap-6 md:grid-cols-2';
+
+        // Limit to 4 videos initially
+        chapter.videos.slice(0, 4).forEach(video => {
+          const card = document.createElement('div');
+          card.className = 'bg-white p-4 rounded shadow';
+          card.innerHTML = `
+            <h3 class="font-semibold text-lg mb-2">${video.title}</h3>
+            <iframe width="100%" height="250" src="${video.url}" frameborder="0" allowfullscreen></iframe>
+          `;
+          grid.appendChild(card);
+        });
+
+        chapterDiv.appendChild(grid);
+        container.appendChild(chapterDiv);
+      });
+    }
+
+    loadVideos();
+  </script>
+</body>
+</html>

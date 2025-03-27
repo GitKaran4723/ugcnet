@@ -1,0 +1,35 @@
+/* Global tweaks (optional but good for consistency) */
+
+body {
+    scroll-behavior: smooth;
+  }
+  
+  /* Links */
+  a {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    color: #4338ca; /* Tailwind Indigo-800 */
+  }
+  
+  /* Custom card hover effect */
+  .card-hover:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer */
+  footer {
+    font-size: 0.875rem;
+    color: #4b5563; /* Tailwind Gray-600 */
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 640px) {
+    h1, h2, h3 {
+      text-align: center;
+    }
+  }
+  
